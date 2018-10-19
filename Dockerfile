@@ -17,11 +17,11 @@ RUN /etc/init.d/postgresql start && \
 USER root
 WORKDIR /go/src/github.com/Ermako27/technopark-database
 COPY . .
-RUN go get github.com/technopark-database/api/user
-RUN go get github.com/technopark-database/dbutils
-RUN go get github.com/gorilla/mux
-RUN go get github.com/technopark-database/jsonutils
-RUN go get github.com/technopark-database/api
+RUN go get github.com/Ermako27/technopark-database/api/user
+RUN go get github.com/Ermako27/technopark-database/dbutils
+RUN go get github.com/Ermako27/gorilla/mux
+RUN go get github.com/Ermako27/technopark-database/jsonutils
+RUN go get github.com/Ermako27/technopark-database/api
 RUN go build
 
 EXPOSE 5000
