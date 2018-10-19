@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/technopark-database/api"
-	"github.com/technopark-database/jsonutils"
+	"github.com/Ermako27/technopark-database/api"
+	"github.com/Ermako27/technopark-database/jsonutils"
 )
 
 type userSlice []api.UserModel
