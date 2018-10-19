@@ -29,13 +29,12 @@ USER root
 #
 
 # Установка golang
-RUN apt install -y golang-1.11 git
+RUN apt install -y golang-go git
 
 # Выставляем переменную окружения для сборки проекта
-ENV GOROOT /usr/lib/go-1.11
-ENV GOPATH /opt/go
-ENV PATH $GOROOT/bin:$GOPATH/bin:/usr/local/go/bin:$PATH
-
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+RUN mkdir -p "$GOPATH/src" "$GOPATH/bin"
 # Копируем исходный код в Docker-контейнер
 WORKDIR $GOPATH/src/github.com/Ermako27/technopark-database
 COPY . .
