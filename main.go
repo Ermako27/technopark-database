@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/technopark-database/api/user"
-	"github.com/technopark-database/dbutils"
+	"github.com/Ermako27/technopark-database/api/user"
+	"github.com/Ermako27/technopark-database/dbutils"
 
 	"github.com/gorilla/mux"
 )
