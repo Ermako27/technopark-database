@@ -21,16 +21,6 @@ RUN /etc/init.d/postgresql start &&\
     createdb -O docker docker &&\
     /etc/init.d/postgresql stop
 
-# Adjust PostgreSQL configuration so that remote connections to the
-# database are possible.
-RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/$PGVER/main/pg_hba.conf
-
-# And add ``listen_addresses`` to ``/etc/postgresql/$PGVER/main/postgresql.conf``
-RUN echo "listen_addresses='*'" >> /etc/postgresql/$PGVER/main/postgresql.conf
-
-# Expose the PostgreSQL port
-EXPOSE 5432
-
 # Back to the root user
 USER root
 
