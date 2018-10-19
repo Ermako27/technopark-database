@@ -2,13 +2,14 @@ package user
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"net/http"
 
-	"github.com/Ermako27/technopark-database/api"
-	"github.com/Ermako27/technopark-database/jsonutils"
-	// "technopark-database/api"
-	// "technopark-database/jsonutils"
+	// "github.com/Ermako27/technopark-database/api"
+	// "github.com/Ermako27/technopark-database/jsonutils"
+	"technopark-database/api"
+	"technopark-database/jsonutils"
 )
 
 type userSlice []api.UserModel
@@ -33,6 +34,8 @@ func action(w http.ResponseWriter, input api.UserModel, db *sql.DB) {
 
 	sqlQuery := "SELECT nickname, fullname, about, email FROM users WHERE nickname = $1 OR email = $2"
 	rows, err := db.Query(sqlQuery, input.Nickname, input.Email)
+	fmt.Println(err)
+	recover()
 	defer rows.Close()
 
 	if err != nil {
