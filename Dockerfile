@@ -48,11 +48,11 @@ ENV GOPATH /opt/go
 ENV PATH $GOROOT/bin:$GOPATH/bin:/usr/local/go/bin:$PATH
 
 # Копируем исходный код в Docker-контейнер
-WORKDIR $GOPATH/src/github.com/Ermako27/technopark-db
+WORKDIR $GOPATH/src/github.com/Ermako27/technopark-database
 COPY . .
 RUN go get ./...
 RUN go build
 
 CMD /etc/init.d/postgresql start && \
     sleep 10 && \
-    ./technopark-db --scheme=http --port=5000 --host=0.0.0.0 --database=postgres://docker:docker@localhost/docker
+    ./technopark-database --scheme=http --port=5000 --host=0.0.0.0 --database=postgres://docker:docker@localhost/docker
